@@ -35,7 +35,9 @@
                     <p>Мой первый сайт <br />Я не знаю, что происходит!</p>
                 </div>
             </div>
-            <a class="main-down slowly" href="#"><i class="icon-down"></i></a>
+            <a class="main-down slowly" href="#portfolio"
+                ><i class="icon-down"></i
+            ></a>
         </div>
 
         <div class="portfolio" id="portfolio">
@@ -149,7 +151,14 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script>
-            $("#nav_scroll");
+            $(function() {
+                var link = $('a[data-toggle="modal"]');
+                link.on("click", function(event) {
+                    var work = $(this).attr("data-work");
+                    var modal = $(".modal");
+                    modal.find(".modal-body").load(work + ".html");
+                });
+            });
         </script>
     </body>
 </html>
